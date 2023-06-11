@@ -109,3 +109,12 @@ FROM Klient K
 JOIN Zamówienie Z ON K.ID_klienta = Z.ID_klienta
 JOIN Zamówienie_Produkt ZP ON Z.ID_zamówienia = ZP.ID_zamówienia
 JOIN Produkt P ON ZP.ID_produktu = P.ID_produktu;
+
+-- Tabela 3
+SELECT M.Nazwa_magazynu, A.miasto, P.nazwa
+FROM Magazyn M
+JOIN Adres A ON M.ID_adresu = A.ID_adresu
+JOIN Magazyn_Kategoria MK ON M.ID_magazynu = MK.ID_magazynu
+JOIN Kategoria K ON MK.ID_kategorii = K.ID_kategorii
+JOIN Produkt P ON K.id_kategorii = P.id_kategorii
+WHERE A.miasto = 'Kraków';
