@@ -35,9 +35,7 @@ CREATE TABLE Adres (
 
 CREATE TABLE Magazyn (
   ID_magazynu INT PRIMARY KEY,
-  Nazwa_magazynu VARCHAR(100),
-  ID_adresu INT,
-  FOREIGN KEY (ID_adresu) REFERENCES Kategoria(ID_adresu)
+  Nazwa_magazynu VARCHAR(100)
 );
 
 CREATE TABLE Kategoria (
