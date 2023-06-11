@@ -42,7 +42,7 @@ CREATE TABLE Kategoria (
   ID_kategorii INT PRIMARY KEY,
   Nazwa_kategorii VARCHAR(50).
   ID_magazynu INT,
-  FOREIGN KEY (ID_magazynu) REFERENCES Kategoria(ID_magazynu)
+  FOREIGN KEY (ID_magazynu) REFERENCES Magazyn(ID_magazynu)
 );
 
 CREATE TABLE Zamówienie_Produkt (
