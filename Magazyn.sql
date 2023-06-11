@@ -48,6 +48,7 @@ CREATE TABLE Magazyn (
 CREATE TABLE Zamówienie_Produkt (
   ID_zamówienia INT,
   ID_produktu INT,
+  Ilość INT,
   PRIMARY KEY (ID_zamówienia, ID_produktu),
   FOREIGN KEY (ID_zamówienia) REFERENCES Zamówienie(ID_zamówienia),
   FOREIGN KEY (ID_produktu) REFERENCES Produkt(ID_produktu)
