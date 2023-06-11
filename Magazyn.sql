@@ -33,16 +33,16 @@ CREATE TABLE Adres (
   Kraj VARCHAR(50)
 );
 
-CREATE TABLE Magazyn (
-  ID_magazynu INT PRIMARY KEY,
-  Nazwa_magazynu VARCHAR(100)
-);
-
 CREATE TABLE Kategoria (
   ID_kategorii INT PRIMARY KEY,
   Nazwa_kategorii VARCHAR(50).
   ID_magazynu INT,
   FOREIGN KEY (ID_magazynu) REFERENCES Magazyn(ID_magazynu)
+);
+
+CREATE TABLE Magazyn (
+  ID_magazynu INT PRIMARY KEY,
+  Nazwa_magazynu VARCHAR(100)
 );
 
 CREATE TABLE Zamówienie_Produkt (
