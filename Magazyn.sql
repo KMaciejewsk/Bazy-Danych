@@ -3,7 +3,9 @@ CREATE TABLE Klient (
   Imię VARCHAR(50),
   Nazwisko VARCHAR(50),
   Email VARCHAR(50),
-  Numer_telefonu VARCHAR(20)
+  Numer_telefonu VARCHAR(20),
+  ID_adresu INT,
+  FOREIGN KEY (ID_adresu) REFERENCES Adres(ID_adresu)
 );
 
 CREATE TABLE Zamówienie (
@@ -33,9 +35,14 @@ CREATE TABLE Adres (
   Ulica VARCHAR(100),
   Miasto VARCHAR(50),
   Kod_pocztowy VARCHAR(10),
-  Kraj VARCHAR(50),
-  ID_klienta INT,
-  FOREIGN KEY (ID_klienta) REFERENCES Klient(ID_klienta)
+  Kraj VARCHAR(50)
+);
+
+CREATE TABLE Magazyn (
+  ID_magazynu INT PRIMARY KEY,
+  Nazwa_magazynu VARCHAR(100),
+  ID_adresu INT,
+  FOREIGN KEY (ID_adresu) REFERENCES Adres(ID_adresu)
 );
 
 CREATE TABLE Zamówienie_Produkt (
