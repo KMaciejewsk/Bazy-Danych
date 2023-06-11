@@ -97,18 +97,15 @@ VALUES (3, 2, 4); -- Zamówienie 3: Produkt 2, ilość 4
 INSERT INTO Zamówienie_Produkt (ID_zamówienia, ID_produktu, Ilość)
 VALUES (3, 3, 3); -- Zamówienie 3: Produkt 3, ilość 3
 
--- Tabele
-CREATE TABLE Zamówienia_Produkty (
-  ID_zamówienia INT,
-  ID_produktu INT,
-  Ilość INT,
-  Cena DECIMAL(10, 2),
-  PRIMARY KEY (ID_zamówienia, ID_produktu),
-  FOREIGN KEY (ID_zamówienia) REFERENCES Zamówienie(ID_zamówienia),
-  FOREIGN KEY (ID_produktu) REFERENCES Produkt(ID_produktu)
-);
-
-SELECT Z.ID_zamówienia, P.ID_produktu, P.Nazwa_produktu, ZP.Ilość, P.Cena * ZP.Ilość AS 'Suma_cen'
+-- Tabela 1
+SELECT Z.ID_zamówienia, P.ID_produktu, P.Nazwa, ZP.Ilość, P.Cena * ZP.Ilość AS 'Suma_cen'
 FROM Zamówienie Z
+JOIN Zamówienie_Produkt ZP ON Z.ID_zamówienia = ZP.ID_zamówienia
+JOIN Produkt P ON ZP.ID_produktu = P.ID_produktu;
+
+-- Tabela 2
+SELECT K.ID_klienta, K.Imię, K.Nazwisko, P.ID_produktu, P.Nazwa
+FROM Klient K
+JOIN Zamówienie Z ON K.ID_klienta = Z.ID_klienta
 JOIN Zamówienie_Produkt ZP ON Z.ID_zamówienia = ZP.ID_zamówienia
 JOIN Produkt P ON ZP.ID_produktu = P.ID_produktu;
