@@ -42,6 +42,8 @@ CREATE TABLE Magazyn (
   ID_magazynu INT PRIMARY KEY,
   Nazwa_magazynu VARCHAR(100),
   ID_adresu INT,
+  ID_kategorii INT,
+  FOREIGN KEY (ID_kategorii) REFERENCES Kategoria(ID_kategorii)
   FOREIGN KEY (ID_adresu) REFERENCES Adres(ID_adresu)
 );
 
