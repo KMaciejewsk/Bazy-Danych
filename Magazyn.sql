@@ -25,6 +25,11 @@ CREATE TABLE Produkt (
   FOREIGN KEY (ID_kategorii) REFERENCES Kategoria(ID_kategorii)
 );
 
+CREATE TABLE Kategoria (
+  ID_kategorii INT PRIMARY KEY,
+  Nazwa_kategorii VARCHAR(50)
+);
+
 CREATE TABLE Adres (
   ID_adresu INT PRIMARY KEY,
   Ulica VARCHAR(100),
@@ -33,16 +38,19 @@ CREATE TABLE Adres (
   Kraj VARCHAR(50)
 );
 
-CREATE TABLE Kategoria (
-  ID_kategorii INT PRIMARY KEY,
-  Nazwa_kategorii VARCHAR(50).
-  ID_magazynu INT,
-  FOREIGN KEY (ID_magazynu) REFERENCES Magazyn(ID_magazynu)
-);
-
 CREATE TABLE Magazyn (
   ID_magazynu INT PRIMARY KEY,
-  Nazwa_magazynu VARCHAR(100)
+  Nazwa_magazynu VARCHAR(100),
+  ID_adresu INT,
+  FOREIGN KEY (ID_adresu) REFERENCES Adres(ID_adresu)
+);
+
+CREATE TABLE Magazyn_Kategoria (
+  ID_magazynu INT,
+  ID_kategorii INT,
+  PRIMARY KEY (ID_magazynu, ID_kategorii),
+  FOREIGN KEY (ID_magazynu) REFERENCES Magazyn(ID_magazynu),
+  FOREIGN KEY (ID_kategorii) REFERENCES Kategoria(ID_kategorii)
 );
 
 CREATE TABLE Zamówienie_Produkt (
