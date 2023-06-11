@@ -53,14 +53,6 @@ CREATE TABLE Magazyn_Kategoria (
   FOREIGN KEY (ID_kategorii) REFERENCES Kategoria(ID_kategorii)
 );
 
-CREATE TABLE Magazyn_Kategoria (
-  ID_magazynu INT,
-  ID_kategorii INT,
-  PRIMARY KEY (ID_magazynu, ID_kategorii),
-  FOREIGN KEY (ID_magazynu) REFERENCES Magazyn(ID_magazynu),
-  FOREIGN KEY (ID_kategorii) REFERENCES Kategoria(ID_kategorii)
-);
-
 CREATE TABLE Zamówienie_Produkt (
   ID_zamówienia INT,
   ID_produktu INT,
